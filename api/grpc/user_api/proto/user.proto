@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "DavidG9999.user.v1;userv1";
+
+service User {
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+    rpc GetUser (GetUserRequest) returns (GetUserResponse);
+    rpc GetUserById (GetUserByIdRequest) returns (GetUserByIdResponse);
+    rpc UpdateName (UpdateNameRequest) returns (UpdateNameResponse);
+    rpc UpdatePassword (UpdatePasswordRequest) returns (UpdatePasswordResponse);
+    rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+}
+
+message UserEntity {
+    int64 user_id = 1; // User ID.
+    string name = 2; // Name of the user register.
+    string email = 3; // Email of the user register.
+    string password = 4; // Password of the user register.
+}
+
+message CreateUserRequest {
+    string name = 1; // Name of the user register.
+    string email = 2; // Email of the user register.
+    string password = 3; // Password of the user register.
+}
+
+message CreateUserResponse {
+    int64 user_id = 1; // User ID of the registered user.
+}
+
+message GetUserRequest {
+    string email = 1; // Email of the user to login.
+    string password = 2; // Password of the user to login.
+}
+
+message GetUserResponse {
+    UserEntity user = 1; // User entity.
+}
+
+message GetUserByIdRequest {
+    int64 user_id = 1; // User ID.
+}
+
+message GetUserByIdResponse {
+    UserEntity user = 1; // User entity.
+}
+
+message UpdateNameRequest {
+    int64 user_id = 1; // User ID.
+    string update_name = 2; // Updated username
+}
+
+message UpdateNameResponse {
+    UserEntity user = 1; // Updated user entity.
+}
+
+message UpdatePasswordRequest {
+    int64 user_id = 1; // User ID.
+    string update_password = 2; // Updated user password
+}
+
+message UpdatePasswordResponse {
+    UserEntity user = 1; // Updated user entity.
+}
+
+message DeleteUserRequest {
+    int64 user_id = 1; // User ID.
+}
+
+message DeleteUserResponse {
+}
+
+
