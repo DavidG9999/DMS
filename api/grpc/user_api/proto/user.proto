@@ -15,15 +15,15 @@ service User {
 
 message UserEntity {
     int64 user_id = 1; // User ID.
-    string name = 2; // Name of the user register.
-    string email = 3; // Email of the user register.
-    string password = 4; // Password of the user register.
+    string name = 2; // Name of the user.
+    string email = 3; // Email of the user.
+    string password_hash = 4; // Password of the user.
 }
 
 message CreateUserRequest {
     string name = 1; // Name of the user register.
     string email = 2; // Email of the user register.
-    string password = 3; // Password of the user register.
+    string password_hash = 3; // Password of the user register.
 }
 
 message CreateUserResponse {
@@ -32,7 +32,6 @@ message CreateUserResponse {
 
 message GetUserRequest {
     string email = 1; // Email of the user to login.
-    string password = 2; // Password of the user to login.
 }
 
 message GetUserResponse {
@@ -44,7 +43,8 @@ message GetUserByIdRequest {
 }
 
 message GetUserByIdResponse {
-    UserEntity user = 1; // User entity.
+    string name = 1; // Name of the user.
+    string email = 2; // Email of the user.
 }
 
 message UpdateNameRequest {
@@ -53,7 +53,7 @@ message UpdateNameRequest {
 }
 
 message UpdateNameResponse {
-    UserEntity user = 1; // Updated user entity.
+    string message = 1; // Request status message.  
 }
 
 message UpdatePasswordRequest {
@@ -62,7 +62,7 @@ message UpdatePasswordRequest {
 }
 
 message UpdatePasswordResponse {
-    UserEntity user = 1; // Updated user entity.
+    string message = 1; // Request status message.  
 }
 
 message DeleteUserRequest {
@@ -70,6 +70,7 @@ message DeleteUserRequest {
 }
 
 message DeleteUserResponse {
+    string message = 1; // Request status message.  
 }
 
 
