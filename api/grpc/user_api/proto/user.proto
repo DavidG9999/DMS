@@ -13,29 +13,25 @@ service User {
     rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
 }
 
-message UserEntity {
-    int64 user_id = 1; // User ID.
-    string name = 2; // Name of the user.
-    string email = 3; // Email of the user.
-    string password_hash = 4; // Password of the user.
-}
-
 message CreateUserRequest {
-    string name = 1; // Name of the user register.
-    string email = 2; // Email of the user register.
-    string password_hash = 3; // Password of the user register.
+    string name = 1; // Name of the user create.
+    string email = 2; // Email of the user create.
+    string password_hash = 3; // Password of the user create.
 }
 
 message CreateUserResponse {
-    int64 user_id = 1; // User ID of the registered user.
+    int64 user_id = 1; // User ID of the created user.
 }
 
 message GetUserRequest {
-    string email = 1; // Email of the user to login.
+    string email = 1; // Email of the user to get.
 }
 
 message GetUserResponse {
-    UserEntity user = 1; // User entity.
+    int64 user_id = 1; // User ID.
+    string name = 2; // Name of the user geted.
+    string email = 3; // Email of the user geted.
+    string password_hash = 4; // Password of the user geted.
 }
 
 message GetUserByIdRequest {
