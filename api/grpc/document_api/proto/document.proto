@@ -1,0 +1,500 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package document;
+
+option go_package = "DavidG9999.document.v1;docv1";
+
+service Auto {
+    rpc CreateAuto (CreateAutoRequest) returns (CreateAutoResponse);
+    rpc GetAutos (GetAutosRequest) returns (GetAutosResponse);
+    rpc UpdateAuto (UpdateAutoRequest) returns (UpdateAutoResponse);
+    rpc DeleteAuto (DeleteAutoRequest) returns (DeleteAutoResponse);
+} 
+
+message AutoEntity {
+    int64 auto_id = 1; // Auto ID.
+    string brand = 2; // Auto brand.
+    string model = 3; // Auto model.
+    string state_number = 4; //Auto state number.
+}
+
+message CreateAutoRequest {
+    string brand = 1; // Brand of the created auto.
+    string model = 2; // Model of the created auto.
+    string state_number = 3; // State number of the created auto.
+}
+
+message CreateAutoResponse {
+    int64 auto_id = 1; // ID of the created auto.
+}
+
+message GetAutosRequest {
+
+}
+
+message GetAutosResponse {
+    repeated AutoEntity autos = 1; // List of autos.
+}
+
+message UpdateAutoRequest {
+    int64 auto_id = 1; // Auto ID.
+    string brand = 2; // Auto Brand.
+    string model = 3; // Auto Model.
+    string state_number = 4; // Auto State number.
+}
+
+message UpdateAutoResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteAutoRequest {
+    int64 auto_id = 1; // Auto ID.
+}
+
+message DeleteAutoResponse {
+    string message = 1; // Request status message.
+}
+
+service Contragent {
+    rpc CreateContragent (CreateContragentRequest) returns (CreateContragentResponse);
+    rpc GetContragents (GetContragentsRequest) returns (GetContragentsResponse);
+    rpc UpdateContragent (UpdateContragentRequest) returns (UpdateContragentResponse);
+    rpc DeleteContragent (DeleteContragentRequest) returns (DeleteContragentResponse);
+} 
+
+message ContragentEntity {
+    int64 contragent_id = 1; // Contragent ID.
+    string name = 2; // Contragent name.
+    string address = 3; // Contragent address.
+    string inn_kpp = 4; // Contragent Inn/Kpp
+}
+
+message CreateContragentRequest {
+    string name = 1; // Name of the created Contragent.
+    string address = 2; // Address of the created Contragent.
+    string inn_kpp = 3; // Inn/Kpp number of the created Contragent.
+}
+
+message CreateContragentResponse {
+    int64 contragent_id = 1; // ID of the created Contragent.
+}
+
+message GetContragentsRequest {
+
+}
+
+message GetContragentsResponse {
+    repeated ContragentEntity contragents = 1; // List of Contragents.
+}
+
+message UpdateContragentRequest {
+    int64 contragent_id = 1; // Contragent ID.
+    string name = 2; // Contragent Name.
+    string address = 3; // Contragent Address.
+    string inn_kpp = 4; // Contragent Inn/Kpp.
+}
+
+message UpdateContragentResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteContragentRequest {
+    int64 contragent_id = 1; // Contragent ID.
+}
+
+message DeleteContragentResponse {
+    string message = 1; // Request status message.
+}
+
+service Dispetcher {
+    rpc CreateDispetcher (CreateDispetcherRequest) returns (CreateDispetcherResponse);
+    rpc GetDispetchers (GetDispetchersRequest) returns (GetDispetchersResponse);
+    rpc UpdateDispetcher (UpdateDispetcherRequest) returns (UpdateDispetcherResponse);
+    rpc DeleteDispetcher (DeleteDispetcherRequest) returns (DeleteDispetcherResponse);
+} 
+
+message DispetcherEntity {
+    int64 dispetcher_id = 1; // Dispetcher ID.
+    string full_name = 2; // Dispetcher Name.
+}
+
+message CreateDispetcherRequest {
+    string full_name = 1; // Name of the created Dispetcher.
+}
+
+message CreateDispetcherResponse {
+    int64 dispetcher_id = 1; // ID of the created Dispetcher.
+}
+
+message GetDispetchersRequest {
+
+}
+
+message GetDispetchersResponse {
+    repeated DispetcherEntity dispetchers = 1; // List of Dispetchers.
+}
+
+message UpdateDispetcherRequest {
+    int64 dispetcher_id = 1; // Dispetcher ID.
+    string full_name = 2; // Dispetcher Name.
+}
+
+message UpdateDispetcherResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteDispetcherRequest {
+    int64 dispetcher_id = 1; // Dispetcher ID.
+}
+
+message DeleteDispetcherResponse {
+    string message = 1; // Request status message.
+}
+
+service Mehanic {
+    rpc CreateMehanic (CreateMehanicRequest) returns (CreateMehanicResponse);
+    rpc GetMehanics   (GetMehanicsRequest)   returns (GetMehanicsResponse);
+    rpc UpdateMehanic (UpdateMehanicRequest) returns (UpdateMehanicResponse);
+    rpc DeleteMehanic (DeleteMehanicRequest) returns (DeleteMehanicResponse);
+} 
+
+message MehanicEntity {
+    int64 mehanic_id = 1; // Mehanic ID.
+    string full_name = 2; // Mehanic Name.
+}
+
+message CreateMehanicRequest {
+    string full_name = 1; // Name of the created Mehanic.
+}
+
+message CreateMehanicResponse {
+    int64 mehanic_id = 1; // ID of the created Mehanic.
+}
+
+message GetMehanicsRequest {
+
+}
+
+message GetMehanicsResponse {
+    repeated MehanicEntity mehanics = 1; // List of Mehanics.
+}
+
+message UpdateMehanicRequest {
+    int64 mehanic_id = 1; // Mehanic ID.
+    string full_name = 2; // Mehanic Name.
+}
+
+message UpdateMehanicResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteMehanicRequest {
+    int64 mehanic_id = 1; // Mehanic ID.
+}
+
+message DeleteMehanicResponse {
+    string message = 1; // Request status message.
+}
+
+service Driver {
+    rpc CreateDriver (CreateDriverRequest) returns (CreateDriverResponse);
+    rpc GetDrivers   (GetDriversRequest)   returns (GetDriversResponse);
+    rpc UpdateDriver (UpdateDriverRequest) returns (UpdateDriverResponse);
+    rpc DeleteDriver (DeleteDriverRequest) returns (DeleteDriverResponse);
+} 
+
+message DriverEntity {
+    int64 driver_id = 1; // Driver ID.
+    string full_name = 2; // Driver Name.
+    string license = 3; // Driver License.
+    string class = 4; // Driver Class.
+}
+
+message CreateDriverRequest {
+    string full_name = 1; // Name of the created Driver.
+    string license = 2; // License of the created Driver.
+    string class = 3; // Class of the created Driver.
+}
+
+message CreateDriverResponse {
+    int64 driver_id = 1; // ID of the created Driver.
+}
+
+message GetDriversRequest {
+
+}
+
+message GetDriversResponse {
+    repeated DriverEntity drivers = 1; // List of Drivers.
+}
+
+message UpdateDriverRequest {
+    int64 driver_id = 1; // Driver ID.
+    string full_name = 2; // Driver name.
+    string license = 3; // Driver License.
+    string class = 4; // Driver Class.
+}
+
+message UpdateDriverResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteDriverRequest {
+    int64 driver_id = 1; // Driver ID.
+}
+
+message DeleteDriverResponse {
+    string message = 1; // Request status message.
+}
+
+service Organization {
+    rpc CreateOrganization (CreateOrganizationRequest) returns (CreateOrganizationResponse);
+    rpc GetOrganizations   (GetOrganizationsRequest)   returns (GetOrganizationsResponse);
+    rpc UpdateOrganization (UpdateOrganizationRequest) returns (UpdateOrganizationResponse);
+    rpc DeleteOrganization (DeleteOrganizationRequest) returns (DeleteOrganizationResponse);
+} 
+
+message OrganizationEntity {
+    int64 organization_id = 1; // Organization ID.
+    string name = 2; // Organization Name.
+    string address = 3; // Organization Address.
+    string chief = 4; // Organization Chief.
+    string fin_chief = 5; // Organization Financial Chief.
+    string inn_kpp = 6; // Organization Inn/Kpp.
+}
+
+message CreateOrganizationRequest {
+    string name = 1; // Name of the created Organization.
+    string address = 2; // Address of the created Organization.
+    string chief = 3; // Chief of the created Organization.
+    string fin_chief = 4; //  Financial Chief of the created Organization.
+    string inn_kpp = 5; // Inn/Kpp of the created Organization.
+}
+
+message CreateOrganizationResponse {
+    int64 organization_id = 1; // ID of the created Organization.
+}
+
+message GetOrganizationsRequest {
+
+}
+
+message GetOrganizationsResponse {
+    repeated OrganizationEntity organizations = 1; // List of Organizations.
+}
+
+message UpdateOrganizationRequest {
+    int64 organization_id = 1; // Organization ID.
+    string name = 2; // Organization Name.
+    string address = 3; // Organization Address.
+    string chief = 4; // Organization Chief.
+    string fin_chief = 5; // Organization Financial Chief.
+    string inn_kpp = 6; // Organization Inn/Kpp.
+}
+
+message UpdateOrganizationResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteOrganizationRequest {
+    int64 organization_id = 1; // Organization ID.
+}
+
+message DeleteOrganizationResponse {
+    string message = 1; // Request status message.
+}
+
+service BankAccount {
+    rpc CreateBankAccount (CreateBankAccountRequest) returns (CreateBankAccountResponse);
+    rpc GetBankAccounts   (GetBankAccountsRequest)   returns (GetBankAccountsResponse);
+    rpc UpdateBankAccount (UpdateBankAccountRequest) returns (UpdateBankAccountResponse);
+    rpc DeleteBankAccount (DeleteBankAccountRequest) returns (DeleteBankAccountResponse);
+} 
+
+message BankAccountEntity {
+    int64 bank_account_id = 1; // BankAccount ID.
+    string account_name = 2; // BankAccount Account Name.
+    string bank_name = 3; // BankAccount Bank Name.
+    string bank_id_number = 4; // BankAccount Bank Identity Number.
+    int64 organization_id = 5; // BankAccount Organization ID.
+}
+
+message CreateBankAccountRequest {
+    string account_name = 1; // Account Name of the created BankAccount.
+    string bank_name = 2; // Bank Name of the created BankAccount.
+    string bank_id_number = 3; // Bank Identity Number of the created BankAccount.
+    int64 organization_id = 4; //  Organization ID of the created BankAccount.
+}
+
+message CreateBankAccountResponse {
+    int64 bank_account_id = 1; // ID of the created BankAccount.
+}
+
+message GetBankAccountsRequest {
+
+}
+
+message GetBankAccountsResponse {
+    repeated BankAccountEntity bank_accounts = 1; // List of BankAccounts.
+}
+
+message UpdateBankAccountRequest {
+    int64 bank_account_id = 1; // BankAccount ID.
+    string account_name = 2; // BankAccount Account Name.
+    string bank_name = 3; // BankAccount Bank Name.
+    string bank_id_number = 4; // BankAccount Bank Identity Number.
+    int64 organization_id = 5; // BankAccount Organization ID.
+}
+
+message UpdateBankAccountResponse {
+    string message = 1; // Request status message.
+}
+
+message DeleteBankAccountRequest {
+    int64 bank_account_id = 1; // BankAccount ID.
+}
+
+message DeleteBankAccountResponse {
+    string message = 1; // Request status message.
+}
+
+service Putlist {
+    rpc CreatePutlist (CreatePutlistRequest) returns (CreatePutlistResponse);
+    rpc GetPutlists   (GetPutlistsRequest)   returns (GetPutlistsResponse);
+    rpc GetPutlistByNumber (GetPutlistByNumberRequest) returns (GetPutlistByNumberResponse);
+    rpc UpdatePutlist (UpdatePutlistRequest) returns (UpdatePutlistResponse);
+    rpc DeletePutlist (DeletePutlistRequest) returns (DeletePutlistResponse);
+} 
+
+message PutlistEntity {
+    int64 putlist_id = 1; // Putlist ID.
+    int64 user_id = 2; // Putlist User ID.
+    int64 number = 3; // Putlist Number.
+    int64 bank_account_id = 4; // Putlist BankAccount ID.
+    google.protobuf.Timestamp date_with = 5; // Putlist Date With.      
+    google.protobuf.Timestamp date_for = 6; // Putlist Date For.
+    int64 auto_id = 7; // Putlist Auto ID.
+    int64 driver_id = 8; // Putlist Driver ID.
+    int64 dispetcher_id = 9; // Putlist Dispetcher ID.
+    int64 mehanic_id = 10; // Putlist Mehanic ID.
+}
+
+message CreatePutlistRequest {
+    int64 user_id = 1; // Putlist User ID.
+    int64 number = 2; // Putlist Number.
+    int64 bank_account_id = 3; // Putlist BankAccount ID.
+    google.protobuf.Timestamp date_with = 4; // Putlist Date With.      
+    google.protobuf.Timestamp date_for = 5; // Putlist Date For.
+    int64 auto_id = 6; // Putlist Auto ID.
+    int64 driver_id = 7; // Putlist Driver ID.
+    int64 dispetcher_id = 8; // Putlist Dispetcher ID.
+    int64 mehanic_id = 9; // Putlist Mehanic ID.
+}
+
+message CreatePutlistResponse {
+    int64 putlist_id = 1; // ID of the created Putlist.
+}
+
+message GetPutlistByNumberRequest {
+    int64 user_id = 1; // Putlist User ID.
+    int64 number = 2; // Putlist Number.
+}
+
+message GetPutlistByNumberResponse {
+    PutlistEntity putlist = 1; // List of Putlists.
+}
+
+message GetPutlistsRequest {
+    int64 user_id = 1; // Putlist User ID.
+}
+
+message GetPutlistsResponse {
+    repeated PutlistEntity putlists = 1; // Putlist.
+}
+
+message UpdatePutlistRequest {
+    int64 user_id = 1; // Putlist User ID.
+    int64 number = 2; // Putlist Number.
+    int64 bank_account_id = 3; // Putlist BankAccount ID.
+    google.protobuf.Timestamp date_with = 4; // Putlist Date With.      
+    google.protobuf.Timestamp date_for = 5; // Putlist Date For.
+    int64 auto_id = 6; // Putlist Auto ID.
+    int64 driver_id = 7; // Putlist Driver ID.
+    int64 dispetcher_id = 8; // Putlist Dispetcher ID.
+    int64 mehanic_id = 9; // Putlist Mehanic ID.
+}
+
+message UpdatePutlistResponse {
+    string message = 1; // Request status message.
+}
+
+message DeletePutlistRequest {
+    int64 user_id = 1; // Putlist User ID.
+    int64 putlist_number = 2; // Putlist ID.
+}
+
+message DeletePutlistResponse {
+    string message = 1; // Request status message.
+}
+
+service PutlistBody {
+    rpc CreatePutlistBody (CreatePutlistBodyRequest) returns (CreatePutlistBodyResponse);
+    rpc GetPutlistsBodies   (GetPutlistBodiesRequest)   returns (GetPutlistBodiesResponse);
+    rpc UpdatePutlistBody (UpdatePutlistBodyRequest) returns (UpdatePutlistBodyResponse);
+    rpc DeletePutlistBody (DeletePutlistBodyRequest) returns (DeletePutlistBodyResponse);
+} 
+
+message PutlistBodyEntity {
+    int64 putlist_body_id = 1; // PutlistBody ID.
+    int64 putlist_number = 2; // Putlist Number.
+    int64 number = 3; // PutlistBody Number.
+    int64 contragent_id = 4; // PutlistBody Contragent ID.
+    int64 item = 5; // PutlistBody Item.
+    google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
+    google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
+}
+
+message CreatePutlistBodyRequest {
+    int64 putlist_number = 1; // Putlist Number.
+    int64 number = 2; // PutlistBody Number.
+    int64 contragent_id = 3; // PutlistBody Contragent ID.
+    int64 item = 4; // PutlistBody Item.
+    google.protobuf.Timestamp time_with = 5; // PutlistBody Time With.   
+    google.protobuf.Timestamp time_for = 6; // PutlistBody Time For.
+}
+
+message CreatePutlistBodyResponse {
+    int64 putlist_body_id = 1; // ID of the created PutlistBody.
+}
+
+message GetPutlistBodiesRequest {
+    int64 putlist_number = 1; // Putlist Number.
+}
+
+message GetPutlistBodiesResponse {
+    repeated PutlistEntity putlist_bodies = 1; // List of Putlist Bodies.
+}
+
+message UpdatePutlistBodyRequest {
+    int64 putlist_body_id = 1; // PutlistBody ID.
+    int64 putlist_number = 2; // Putlist Number.
+    int64 number = 3; // PutlistBody Number.
+    int64 contragent_id = 4; // PutlistBody Contragent ID.
+    int64 item = 5; // PutlistBody Item.
+    google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
+    google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
+}
+
+message UpdatePutlistBodyResponse {
+    string message = 1; // Request status message.
+}
+
+message DeletePutlistBodyRequest {
+    int64 putlist_body_id = 1; // PutlistBody ID.
+}
+
+message DeletePutlistBodyResponse {
+    string message = 1; // Request status message.
+}
