@@ -333,7 +333,7 @@ message CreateBankAccountResponse {
 }
 
 message GetBankAccountsRequest {
-
+    int64 organization_id =1;  //Organization ID.
 }
 
 message GetBankAccountsResponse {
@@ -345,7 +345,6 @@ message UpdateBankAccountRequest {
     string account_name = 2; // BankAccount Account Name.
     string bank_name = 3; // BankAccount Bank Name.
     string bank_id_number = 4; // BankAccount Bank Identity Number.
-    int64 organization_id = 5; // BankAccount Organization ID.
 }
 
 message UpdateBankAccountResponse {
