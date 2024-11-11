@@ -450,7 +450,7 @@ message PutlistBodyEntity {
     int64 putlist_number = 2; // Putlist Number.
     int64 number = 3; // PutlistBody Number.
     int64 contragent_id = 4; // PutlistBody Contragent ID.
-    int64 item = 5; // PutlistBody Item.
+    string item = 5; // PutlistBody Item.
     google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
     google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
 }
@@ -459,7 +459,7 @@ message CreatePutlistBodyRequest {
     int64 putlist_number = 1; // Putlist Number.
     int64 number = 2; // PutlistBody Number.
     int64 contragent_id = 3; // PutlistBody Contragent ID.
-    int64 item = 4; // PutlistBody Item.
+    string item = 4; // PutlistBody Item.
     google.protobuf.Timestamp time_with = 5; // PutlistBody Time With.   
     google.protobuf.Timestamp time_for = 6; // PutlistBody Time For.
 }
@@ -478,10 +478,9 @@ message GetPutlistBodiesResponse {
 
 message UpdatePutlistBodyRequest {
     int64 putlist_body_id = 1; // PutlistBody ID.
-    int64 putlist_number = 2; // Putlist Number.
     int64 number = 3; // PutlistBody Number.
     int64 contragent_id = 4; // PutlistBody Contragent ID.
-    int64 item = 5; // PutlistBody Item.
+    string item = 5; // PutlistBody Item.
     google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
     google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
 }
