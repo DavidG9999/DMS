@@ -473,7 +473,7 @@ message GetPutlistBodiesRequest {
 }
 
 message GetPutlistBodiesResponse {
-    repeated PutlistEntity putlist_bodies = 1; // List of Putlist Bodies.
+    repeated PutlistBodyEntity putlist_bodies = 1; // List of Putlist Bodies.
 }
 
 message UpdatePutlistBodyRequest {
