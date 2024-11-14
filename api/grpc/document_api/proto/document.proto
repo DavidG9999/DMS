@@ -40,9 +40,9 @@ message GetAutosResponse {
 
 message UpdateAutoRequest {
     int64 auto_id = 1; // Auto ID.
-    string brand = 2; // Auto Brand.
-    string model = 3; // Auto Model.
-    string state_number = 4; // Auto State number.
+    optional string brand = 2; // Auto Brand.
+    optional string model = 3; // Auto Model.
+    optional string state_number = 4; // Auto State number.
 }
 
 message UpdateAutoResponse {
