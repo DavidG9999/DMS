@@ -1786,7 +1786,7 @@ var Putlist_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	PutlistBody_CreatePutlistBody_FullMethodName = "/document.PutlistBody/CreatePutlistBody"
-	PutlistBody_GetPutlistsBodies_FullMethodName = "/document.PutlistBody/GetPutlistsBodies"
+	PutlistBody_GetPutlistBodies_FullMethodName  = "/document.PutlistBody/GetPutlistBodies"
 	PutlistBody_UpdatePutlistBody_FullMethodName = "/document.PutlistBody/UpdatePutlistBody"
 	PutlistBody_DeletePutlistBody_FullMethodName = "/document.PutlistBody/DeletePutlistBody"
 )
@@ -1796,7 +1796,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PutlistBodyClient interface {
 	CreatePutlistBody(ctx context.Context, in *CreatePutlistBodyRequest, opts ...grpc.CallOption) (*CreatePutlistBodyResponse, error)
-	GetPutlistsBodies(ctx context.Context, in *GetPutlistBodiesRequest, opts ...grpc.CallOption) (*GetPutlistBodiesResponse, error)
+	GetPutlistBodies(ctx context.Context, in *GetPutlistBodiesRequest, opts ...grpc.CallOption) (*GetPutlistBodiesResponse, error)
 	UpdatePutlistBody(ctx context.Context, in *UpdatePutlistBodyRequest, opts ...grpc.CallOption) (*UpdatePutlistBodyResponse, error)
 	DeletePutlistBody(ctx context.Context, in *DeletePutlistBodyRequest, opts ...grpc.CallOption) (*DeletePutlistBodyResponse, error)
 }
@@ -1819,10 +1819,10 @@ func (c *putlistBodyClient) CreatePutlistBody(ctx context.Context, in *CreatePut
 	return out, nil
 }
 
-func (c *putlistBodyClient) GetPutlistsBodies(ctx context.Context, in *GetPutlistBodiesRequest, opts ...grpc.CallOption) (*GetPutlistBodiesResponse, error) {
+func (c *putlistBodyClient) GetPutlistBodies(ctx context.Context, in *GetPutlistBodiesRequest, opts ...grpc.CallOption) (*GetPutlistBodiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPutlistBodiesResponse)
-	err := c.cc.Invoke(ctx, PutlistBody_GetPutlistsBodies_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, PutlistBody_GetPutlistBodies_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1854,7 +1854,7 @@ func (c *putlistBodyClient) DeletePutlistBody(ctx context.Context, in *DeletePut
 // for forward compatibility.
 type PutlistBodyServer interface {
 	CreatePutlistBody(context.Context, *CreatePutlistBodyRequest) (*CreatePutlistBodyResponse, error)
-	GetPutlistsBodies(context.Context, *GetPutlistBodiesRequest) (*GetPutlistBodiesResponse, error)
+	GetPutlistBodies(context.Context, *GetPutlistBodiesRequest) (*GetPutlistBodiesResponse, error)
 	UpdatePutlistBody(context.Context, *UpdatePutlistBodyRequest) (*UpdatePutlistBodyResponse, error)
 	DeletePutlistBody(context.Context, *DeletePutlistBodyRequest) (*DeletePutlistBodyResponse, error)
 	mustEmbedUnimplementedPutlistBodyServer()
@@ -1870,8 +1870,8 @@ type UnimplementedPutlistBodyServer struct{}
 func (UnimplementedPutlistBodyServer) CreatePutlistBody(context.Context, *CreatePutlistBodyRequest) (*CreatePutlistBodyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePutlistBody not implemented")
 }
-func (UnimplementedPutlistBodyServer) GetPutlistsBodies(context.Context, *GetPutlistBodiesRequest) (*GetPutlistBodiesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPutlistsBodies not implemented")
+func (UnimplementedPutlistBodyServer) GetPutlistBodies(context.Context, *GetPutlistBodiesRequest) (*GetPutlistBodiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPutlistBodies not implemented")
 }
 func (UnimplementedPutlistBodyServer) UpdatePutlistBody(context.Context, *UpdatePutlistBodyRequest) (*UpdatePutlistBodyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePutlistBody not implemented")
@@ -1918,20 +1918,20 @@ func _PutlistBody_CreatePutlistBody_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PutlistBody_GetPutlistsBodies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _PutlistBody_GetPutlistBodies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPutlistBodiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PutlistBodyServer).GetPutlistsBodies(ctx, in)
+		return srv.(PutlistBodyServer).GetPutlistBodies(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PutlistBody_GetPutlistsBodies_FullMethodName,
+		FullMethod: PutlistBody_GetPutlistBodies_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PutlistBodyServer).GetPutlistsBodies(ctx, req.(*GetPutlistBodiesRequest))
+		return srv.(PutlistBodyServer).GetPutlistBodies(ctx, req.(*GetPutlistBodiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1984,8 +1984,8 @@ var PutlistBody_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _PutlistBody_CreatePutlistBody_Handler,
 		},
 		{
-			MethodName: "GetPutlistsBodies",
-			Handler:    _PutlistBody_GetPutlistsBodies_Handler,
+			MethodName: "GetPutlistBodies",
+			Handler:    _PutlistBody_GetPutlistBodies_Handler,
 		},
 		{
 			MethodName: "UpdatePutlistBody",

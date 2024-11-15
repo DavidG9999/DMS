@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 package document;
 
 option go_package = "DavidG9999.document.v1;docv1";
@@ -440,7 +438,7 @@ message DeletePutlistResponse {
 
 service PutlistBody {
     rpc CreatePutlistBody (CreatePutlistBodyRequest) returns (CreatePutlistBodyResponse);
-    rpc GetPutlistsBodies   (GetPutlistBodiesRequest)   returns (GetPutlistBodiesResponse);
+    rpc GetPutlistBodies   (GetPutlistBodiesRequest)   returns (GetPutlistBodiesResponse);
     rpc UpdatePutlistBody (UpdatePutlistBodyRequest) returns (UpdatePutlistBodyResponse);
     rpc DeletePutlistBody (DeletePutlistBodyRequest) returns (DeletePutlistBodyResponse);
 } 
@@ -478,11 +476,11 @@ message GetPutlistBodiesResponse {
 
 message UpdatePutlistBodyRequest {
     int64 putlist_body_id = 1; // PutlistBody ID.
-    optional int64 number = 3; // PutlistBody Number.
-    optional int64 contragent_id = 4; // PutlistBody Contragent ID.
-    optional string item = 5; // PutlistBody Item.
-    optional string time_with = 6; // PutlistBody Time With.   
-    optional string time_for = 7; // PutlistBody Time For.
+    optional int64 number = 2; // PutlistBody Number.
+    optional int64 contragent_id = 3; // PutlistBody Contragent ID.
+    optional string item = 4; // PutlistBody Item.
+    optional string time_with = 5; // PutlistBody Time With.   
+    optional string time_for = 6; // PutlistBody Time For.
 }
 
 message UpdatePutlistBodyResponse {
