@@ -372,8 +372,8 @@ message PutlistEntity {
     int64 user_id = 2; // Putlist User ID.
     int64 number = 3; // Putlist Number.
     int64 bank_account_id = 4; // Putlist BankAccount ID.
-    google.protobuf.Timestamp date_with = 5; // Putlist Date With.      
-    google.protobuf.Timestamp date_for = 6; // Putlist Date For.
+    string date_with = 5; // Putlist Date With.      
+    string date_for = 6; // Putlist Date For.
     int64 auto_id = 7; // Putlist Auto ID.
     int64 driver_id = 8; // Putlist Driver ID.
     int64 dispetcher_id = 9; // Putlist Dispetcher ID.
@@ -384,8 +384,8 @@ message CreatePutlistRequest {
     int64 user_id = 1; // Putlist User ID.
     int64 number = 2; // Putlist Number.
     int64 bank_account_id = 3; // Putlist BankAccount ID.
-    google.protobuf.Timestamp date_with = 4; // Putlist Date With.      
-    google.protobuf.Timestamp date_for = 5; // Putlist Date For.
+    string date_with = 4; // Putlist Date With.      
+    string date_for = 5; // Putlist Date For.
     int64 auto_id = 6; // Putlist Auto ID.
     int64 driver_id = 7; // Putlist Driver ID.
     int64 dispetcher_id = 8; // Putlist Dispetcher ID.
@@ -417,8 +417,8 @@ message UpdatePutlistRequest {
     int64 user_id = 1; // Putlist User ID.
     int64 number = 2; // Putlist Number.
     optional int64 bank_account_id = 3; // Putlist BankAccount ID.
-    optional google.protobuf.Timestamp date_with = 4; // Putlist Date With.      
-    optional google.protobuf.Timestamp date_for = 5; // Putlist Date For.
+    optional string date_with = 4; // Putlist Date With.      
+    optional string date_for = 5; // Putlist Date For.
     optional int64 auto_id = 6; // Putlist Auto ID.
     optional int64 driver_id = 7; // Putlist Driver ID.
     optional int64 dispetcher_id = 8; // Putlist Dispetcher ID.
@@ -451,8 +451,8 @@ message PutlistBodyEntity {
     int64 number = 3; // PutlistBody Number.
     int64 contragent_id = 4; // PutlistBody Contragent ID.
     string item = 5; // PutlistBody Item.
-    google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
-    google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
+    string time_with = 6; // PutlistBody Time With.   
+    string time_for = 7; // PutlistBody Time For.
 }
 
 message CreatePutlistBodyRequest {
@@ -460,8 +460,8 @@ message CreatePutlistBodyRequest {
     int64 number = 2; // PutlistBody Number.
     int64 contragent_id = 3; // PutlistBody Contragent ID.
     string item = 4; // PutlistBody Item.
-    google.protobuf.Timestamp time_with = 5; // PutlistBody Time With.   
-    google.protobuf.Timestamp time_for = 6; // PutlistBody Time For.
+    string time_with = 5; // PutlistBody Time With.   
+    string time_for = 6; // PutlistBody Time For.
 }
 
 message CreatePutlistBodyResponse {
@@ -481,8 +481,8 @@ message UpdatePutlistBodyRequest {
     optional int64 number = 3; // PutlistBody Number.
     optional int64 contragent_id = 4; // PutlistBody Contragent ID.
     optional string item = 5; // PutlistBody Item.
-    optional google.protobuf.Timestamp time_with = 6; // PutlistBody Time With.   
-    optional google.protobuf.Timestamp time_for = 7; // PutlistBody Time For.
+    optional string time_with = 6; // PutlistBody Time With.   
+    optional string time_for = 7; // PutlistBody Time For.
 }
 
 message UpdatePutlistBodyResponse {
