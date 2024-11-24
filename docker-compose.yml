@@ -1,0 +1,79 @@
+services:
+  user_db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./users/migrations/000001_init.up.sql:/docker-entrypoint-initdb.d/000001_init.up.sql
+    environment:
+      -  POSTGRES_USER=david
+      -  POSTGRES_PASSWORD=davidpswrd
+      -  POSTGRES_DB=user_db
+    ports:
+      - 5437:5432
+
+  putlist_db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./documents/putlists/migrations/000001_init.up.sql:/docker-entrypoint-initdb.d/000001_init.up.sql
+    environment:
+      -  POSTGRES_USER=david
+      -  POSTGRES_PASSWORD=davidpswrd
+      -  POSTGRES_DB=putlist_db
+    ports:
+      - 5438:5432
+      
+  users-api:
+    image: users-api
+    container_name: users-api-container
+    build: ./users
+    command: ./users
+    ports:
+      - 4041:4041
+    depends_on:
+      - user_db
+    environment:
+      - CONFIG_PATH=./configs/config.yml
+      - CONFIG_PATH_TEST=./configs/config_test.yml
+      - PASSWORD_DB=davidpswrd
+
+  putlists-api:
+    image: putlists-api
+    container_name: putlists-api-container
+    build: ./documents/putlists
+    command: ./putlists
+    ports:
+      - 4042:4042
+    depends_on:
+      - putlist_db
+    environment:
+      - CONFIG_PATH=./configs/config.yml
+      - CONFIG_PATH_TEST=./configs/config_test.yml
+      - PASSWORD_DB=davidpswrd
+
+  authorization-api:
+    image: authorization-api
+    container_name: authorization-api-container
+    build:  ./authorization
+    command: ./auth
+    ports:
+      - 4040:4040
+    depends_on:
+      - users-api
+    environment:
+      - CONFIG_PATH=./configs/config.yml
+
+  dms-api-gateway:
+    image: dms-api-gateway
+    container_name: dms-api-gateway-container
+    build: ./DMS_api_gateway
+    command: ./dms_api_gateway
+    ports:
+      - 8080:8080
+    depends_on:
+      - users-api
+      - authorization-api
+      - putlists-api
+
+
+
