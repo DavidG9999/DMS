@@ -1,0 +1,13 @@
+env: "local"
+
+token_ttl: 1h
+grpc:
+  port: 4040
+  timeout: 10h
+
+user_client:
+   address: "users-api:4041"
+   timeout: 10h
+   retries_count: 5
+
+clients_config: "user"
