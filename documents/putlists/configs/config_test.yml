@@ -1,0 +1,10 @@
+env: "local"
+db:
+   host: "putlist_db"
+   port: "5432"
+   username: "david"
+   dbname: "document_db_test"
+   sslmode: "disable"
+grpc:
+  port: 4042
+  timeout: 10h
