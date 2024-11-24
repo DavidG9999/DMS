@@ -1,0 +1,10 @@
+env: "local"
+db:
+   host: "user_db"
+   port: "5432"
+   username: "david"
+   dbname: "user_db_test"
+   sslmode: "disable"
+grpc:
+  port: 4041
+  timeout: 1h
