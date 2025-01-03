@@ -10,11 +10,12 @@ import (
 )
 
 type Config struct {
-	Env           string        `yaml:"env" env-default:"local"`
-	TokenTTL      time.Duration `yaml:"token_ttl" env-default:"1h"`
-	GRPC          GRPCConfig    `yaml:"grpc"`
-	UserClient    UserClient    `yaml:"user_client"`
-	}
+	Env        string        `yaml:"env" env-default:"local"`
+	LogPath    string        `yaml:"logpath"`
+	TokenTTL   time.Duration `yaml:"token_ttl" env-default:"1h"`
+	GRPC       GRPCConfig    `yaml:"grpc"`
+	UserClient UserClient    `yaml:"user_client"`
+}
 
 type GRPCConfig struct {
 	Port    int           `yaml:"port"`
@@ -26,7 +27,6 @@ type UserClient struct {
 	Timeout      time.Duration `yaml:"timeout"`
 	RetriesCount int           `yaml:"retries_count"`
 }
-
 
 func MustLoad() *Config {
 	configPath := fetchConfigPath()

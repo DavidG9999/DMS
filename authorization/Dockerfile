@@ -14,6 +14,8 @@ WORKDIR /root/
 COPY --from=builder /github.com/DavidG9999/DMS/authorization/bin/auth .
 COPY --from=builder /github.com/DavidG9999/DMS/authorization/configs configs/
 COPY --from=builder /github.com/DavidG9999/DMS/authorization/.env .
+COPY --from=builder /github.com/DavidG9999/DMS/authorization/internal/logger/logfiles var/log
+
 
 EXPOSE 4040
 

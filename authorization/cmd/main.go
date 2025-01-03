@@ -9,18 +9,13 @@ import (
 	"github.com/DavidG9999/DMS/authorization/internal/app"
 	users_grpc "github.com/DavidG9999/DMS/authorization/internal/clients/users/grpc"
 	"github.com/DavidG9999/DMS/authorization/internal/config"
-)
-
-const (
-	envLocal = "local"
-	envDev   = "dev"
-	envProd  = "prod"
+	"github.com/DavidG9999/DMS/authorization/internal/logger"
 )
 
 func main() {
 	cfg := config.MustLoad()
 
-	logger := setupLogger(cfg.Env)
+	logger := logger.SetupLogger(cfg.Env, cfg.LogPath)
 
 	logger.Info("starting application")
 
@@ -30,7 +25,7 @@ func main() {
 		RetriesCount: cfg.UserClient.RetriesCount,
 	}
 
-	application := app.NewApp(logger, cfg.GRPC.Port, userClCgf, cfg.TokenTTL)//что то тут не так, попробуй переписать по друглмк 
+	application := app.NewApp(logger, cfg.GRPC.Port, userClCgf, cfg.TokenTTL) //что то тут не так, попробуй переписать по друглмк
 
 	go application.GRPCServer.MustRun()
 
@@ -43,18 +38,4 @@ func main() {
 	application.GRPCServer.Stop()
 
 	logger.Info("application stopped")
-}
-
-func setupLogger(env string) *slog.Logger {
-	var logger *slog.Logger
-
-	switch env {
-	case envLocal:
-		logger = slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
-	case envDev:
-		logger = slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
-	case envProd:
-		logger = slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}))
-	}
-	return logger
 }
