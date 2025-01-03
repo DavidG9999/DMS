@@ -1,4 +1,5 @@
 env: "local"
+logpath: "./var/log/users.log"
 db:
    host: "user_db"
    port: "5432"

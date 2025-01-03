@@ -11,6 +11,7 @@ import (
 
 type Config struct {
 	Env      string        `yaml:"env" env-default:"local"`
+	LogPath  string        `yaml:"logpath"`
 	DB       DBConfig      `yaml:"db" env-required:"true"`
 	GRPC     GRPCConfig    `yaml:"grpc"`
 	TokenTTL time.Duration `yaml:"token_ttl" env-default:"1h"`

@@ -14,6 +14,7 @@ WORKDIR /root/
 COPY --from=builder /github.com/DavidG9999/DMS/users/bin/users .
 COPY --from=builder /github.com/DavidG9999/DMS/users/configs configs/
 COPY --from=builder /github.com/DavidG9999/DMS/users/.env .
+COPY --from=builder /github.com/DavidG9999/DMS/users/internal/logger/logfiles var/log
 
 EXPOSE 4041
 
