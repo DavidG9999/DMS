@@ -1,17 +1,18 @@
 package main
 
 import (
+	"context"
+	"log/slog"
+	"os"
+	"os/signal"
+	"syscall"
+
 	"github.com/DavidG9999/DMS/DMS_api_gateway/internal/app"
 	authgrpc "github.com/DavidG9999/DMS/DMS_api_gateway/internal/clients/grpc/auth"
 	putlistgrpc "github.com/DavidG9999/DMS/DMS_api_gateway/internal/clients/grpc/documents/putlist"
 	usergrpc "github.com/DavidG9999/DMS/DMS_api_gateway/internal/clients/grpc/user"
 	"github.com/DavidG9999/DMS/DMS_api_gateway/internal/config"
 	"github.com/DavidG9999/DMS/DMS_api_gateway/internal/logger"
-	"context"
-	"log/slog"
-	"os"
-	"os/signal"
-	"syscall"
 
 	"github.com/spf13/viper"
 )
@@ -31,7 +32,7 @@ func main() {
 
 	config.InitConfig()
 
-	logger := logger.SetupLogger(viper.GetString("env"))
+	logger := logger.SetupLogger(viper.GetString("env"), viper.GetString("logpath"))
 
 	logger.Info("starting application")
 

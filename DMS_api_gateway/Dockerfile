@@ -13,6 +13,7 @@ WORKDIR /root/
 
 COPY --from=builder /github.com/DavidG9999/DMS/DMS_api_gateway/bin/dms_api_gateway .
 COPY --from=builder /github.com/DavidG9999/DMS/DMS_api_gateway/configs configs/
+COPY --from=builder /github.com/DavidG9999/DMS/DMS_api_gateway/internal/logger/logfiles var/log
 
 EXPOSE 8080
 

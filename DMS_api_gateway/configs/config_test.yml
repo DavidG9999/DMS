@@ -1,18 +1,18 @@
 env: "local"
 port: "8080"
-logpath: "./var/log/DMS.log"
+logpath: "./internal/logger/logfiles/test-DMS.log"
 
 auth_client:
-  address: "authorization-api:4040"
+  address: "localhost:4040"
   timeout: 10h
   retries_count: 5
 
 user_client:
-  address: "users-api:4041"
+  address: "localhost:4041"
   timeout: 10h
   retries_count: 5
 
 putlist_client:
-  address: "putlists-api:4042"
+  address: "localhost:4042"
   timeout: 10h
   retries_count: 5
