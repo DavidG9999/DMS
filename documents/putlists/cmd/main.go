@@ -17,7 +17,7 @@ import (
 func main() {
 	cfg := config.MustLoad()
 
-	logger := logger.SetupLogger(cfg.Env)
+	logger := logger.SetupLogger(cfg.Env, cfg.LogPath)
 
 	logger.Info("starting application")
 
